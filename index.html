@@ -144,16 +144,18 @@ Articulos de limpieza</textarea
     ></script>
 
     <script>
+      const apiUrl = 'https://prueba-roommates-tx8e.onrender.com';
+
       let roommates = [];
       let gastos = [];
       let gastoEditing = null;
       const getRoommates = async () => {
-        const res = await fetch("http://localhost:3000/roommates");
+        const res = await fetch(`${apiUrl}/roommates`);
         const data = await res.json();
         roommates = data.roommates;
       };
       const getGastos = async () => {
-        const res = await fetch("http://localhost:3000/gastos");
+        const res = await fetch(`${apiUrl}/gastos`);
         const data = await res.json();
         gastos = data.gastos;
       };
