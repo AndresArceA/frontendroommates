@@ -202,7 +202,7 @@ Articulos de limpieza</textarea
       };
 
       const nuevoRoommate = () => {
-        fetch("http://localhost:3000/roommate", { method: "POST" })
+        fetch(`${apiUrl}/roommate`, { method: "POST" })
           .then((res) => res.json())
           .then((data) => {
             //muestro la respuesta del servidor
@@ -218,7 +218,7 @@ Articulos de limpieza</textarea
         const descripcion = $("#descripcion").val();
         const monto = Number($("#monto").val());
       
-        const response = await fetch("http://localhost:3000/gasto", {
+        const response = await fetch(`${apiUrl}/gasto`, {
           method: "POST",
           headers:{"Content-Type": "application/json"},
           body: JSON.stringify({
@@ -237,7 +237,7 @@ Articulos de limpieza</textarea
       };
 
       const deleteGasto = async (id) => {
-        await fetch("http://localhost:3000/gasto?id=" + id, {
+        await fetch(`${apiUrl}/gasto?id=` + id, {
           method: "DELETE",
         })//agrego codigo para recibir respuesta
         .then(response => response.json())
@@ -257,7 +257,7 @@ Articulos de limpieza</textarea
         const roommateSelected = $("#roommatesSelectModal").val();
         const descripcion = $("#descripcionModal").val();
         const monto = Number($("#montoModal").val());
-        await fetch("http://localhost:3000/gasto?id=" + gastoEditing, {
+        await fetch(`${apiUrl}/gasto?id=`+ gastoEditing, {
           method: "PUT",
           headers:{"Content-Type": "application/json"},
           body: JSON.stringify({
